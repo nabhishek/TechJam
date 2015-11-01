@@ -40,9 +40,11 @@ namespace TechJam
         private SolidColorBrush shade7 = new SolidColorBrush(Windows.UI.Colors.OldLace);
         private SolidColorBrush shade8 = new SolidColorBrush(Windows.UI.Colors.White);
         private SolidColorBrush shade9 = new SolidColorBrush(Windows.UI.Colors.OrangeRed);
+        private SolidColorBrush bgGreen = new SolidColorBrush(Windows.UI.Colors.Green);
 
         public static int val;
         public static bool flash;
+        public static double stepWidth;
 
         public MainPage()
         {
@@ -53,6 +55,7 @@ namespace TechJam
 
             val = 0;
             flash = false;
+            
             timer.Start();
         }
 
@@ -65,6 +68,12 @@ namespace TechJam
 
             //Random rnd = new Random();
             //val = rnd.Next(0, 4);
+            ProgressBarBorder.Width = showTxt.RenderSize.Width - 20;
+            ProgressBarBorder.HorizontalAlignment = HorizontalAlignment.Left;
+            ProgressBarColor.HorizontalAlignment = HorizontalAlignment.Left;
+            ProgressBarBorder.VerticalAlignment = VerticalAlignment.Center;
+            ProgressBarColor.VerticalAlignment = VerticalAlignment.Center;
+            stepWidth = showTxt.RenderSize.Width / 12;
             val = val + 5;
             showTxt.FontSize= config.fSize;
 
@@ -72,63 +81,77 @@ namespace TechJam
             {
                 showTxt.Foreground = shade1;
                 showTxt.Text = "W                  ";
+                ProgressBarColor.Width = stepWidth;
             }
             else if (val < (2 * config.step))
             {
                 showTxt.Foreground = shade2;
                 showTxt.Text = "W                  ";
+                ProgressBarColor.Width = stepWidth*2;
             }
             else if (val < (3 * config.step))
             {
                 showTxt.Foreground = shade3;
                 showTxt.Text = "We                 ";
+                ProgressBarColor.Width = stepWidth*3;
             }
             else if (val < (4 * config.step))
             {
                 showTxt.Foreground = shade4;
                 showTxt.Text = "Wel                ";
+                ProgressBarColor.Width = stepWidth*4;
             }
             else if (val < (5 * config.step))
             {
                 showTxt.Foreground = shade5;
                 showTxt.Text = "Welc               ";
+                ProgressBarColor.Width = stepWidth*5;
             }
             else if (val < (6 * config.step))
             {
                 showTxt.Foreground = shade6;
                 showTxt.Text = "Welco              ";
+                ProgressBarColor.Width = stepWidth*6;
             }
             else if (val < (7 * config.step))
             {
                 showTxt.Foreground = shade7;
                 showTxt.Text = "Welcom             ";
+                ProgressBarColor.Width = stepWidth*7;
             }
             else if (val < (8 * config.step))
             {
                 showTxt.Text = "Welcome            ";
                 showTxt.Foreground = shade8;
                 //showTxt.FontWeight = FontWeights.Bold;
+                ProgressBarColor.Width = stepWidth*8;
             }
             else if (val < (9 * config.step))
             {
                 showTxt.Text = "Welcome TECH     ";
                 showTxt.Foreground = shade8;
                 //showTxt.FontWeight = FontWeights.Bold;
+                ProgressBarColor.Width = stepWidth*9;
             }
             else if (val < (10 * config.step))
             {
                 showTxt.Text = "Welcome TECH-JAM ";
                 showTxt.Foreground = shade8;
                 showTxt.FontWeight = FontWeights.Bold;
+                ProgressBarColor.Width = stepWidth*10;
             }
             else if (val < (11 * config.step))
             {
                 showTxt.Text = "Welcome TECH-JAM!";
                 showTxt.Foreground = shade8;
                 showTxt.FontWeight = FontWeights.Bold;
+                ProgressBarColor.Width = stepWidth*11;
             }
             else
             {
+                ProgressBarColor.Width = stepWidth*12;
+                ProgressBarBorder.BorderBrush = bgGreen;
+                ProgressBarColor.Fill = bgGreen;
                 if (flash == false)
                 {
                     showTxt.Text = "Welcome to TECHJAM!";

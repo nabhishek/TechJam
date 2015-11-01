@@ -8,6 +8,13 @@
     mc:Ignorable="d">
 
     <Grid Background="Black">
-        <TextBlock TextAlignment="Center" VerticalAlignment="Center" Name="showTxt" FontSize="230" TextWrapping="Wrap"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Name="ProgressBarBorder" Margin="10,0,10,0" Height="50" BorderBrush="Red" BorderThickness="2">
+            <Rectangle Height="50" Name="ProgressBarColor" Fill="Red" Width="0"></Rectangle>
+        </Grid>
+        <TextBlock Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center" Name="showTxt" FontSize="230" TextWrapping="Wrap"></TextBlock>
     </Grid>
 </Page>
