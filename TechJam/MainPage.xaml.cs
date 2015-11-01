@@ -82,42 +82,49 @@ namespace TechJam
                 showTxt.Foreground = shade1;
                 showTxt.Text = "W                  ";
                 ProgressBarColor.Width = stepWidth;
+                ProgressText.Text = "8%";
             }
             else if (val < (2 * config.step))
             {
                 showTxt.Foreground = shade2;
                 showTxt.Text = "W                  ";
                 ProgressBarColor.Width = stepWidth*2;
+                ProgressText.Text = "17%";
             }
             else if (val < (3 * config.step))
             {
                 showTxt.Foreground = shade3;
                 showTxt.Text = "We                 ";
                 ProgressBarColor.Width = stepWidth*3;
+                ProgressText.Text = "25%";
             }
             else if (val < (4 * config.step))
             {
                 showTxt.Foreground = shade4;
                 showTxt.Text = "Wel                ";
                 ProgressBarColor.Width = stepWidth*4;
+                ProgressText.Text = "33%";
             }
             else if (val < (5 * config.step))
             {
                 showTxt.Foreground = shade5;
                 showTxt.Text = "Welc               ";
                 ProgressBarColor.Width = stepWidth*5;
+                ProgressText.Text = "42%";
             }
             else if (val < (6 * config.step))
             {
                 showTxt.Foreground = shade6;
                 showTxt.Text = "Welco              ";
                 ProgressBarColor.Width = stepWidth*6;
+                ProgressText.Text = "50%";
             }
             else if (val < (7 * config.step))
             {
                 showTxt.Foreground = shade7;
                 showTxt.Text = "Welcom             ";
                 ProgressBarColor.Width = stepWidth*7;
+                ProgressText.Text = "58%";
             }
             else if (val < (8 * config.step))
             {
@@ -125,6 +132,7 @@ namespace TechJam
                 showTxt.Foreground = shade8;
                 //showTxt.FontWeight = FontWeights.Bold;
                 ProgressBarColor.Width = stepWidth*8;
+                ProgressText.Text = "67%";
             }
             else if (val < (9 * config.step))
             {
@@ -132,6 +140,7 @@ namespace TechJam
                 showTxt.Foreground = shade8;
                 //showTxt.FontWeight = FontWeights.Bold;
                 ProgressBarColor.Width = stepWidth*9;
+                ProgressText.Text = "75%";
             }
             else if (val < (10 * config.step))
             {
@@ -139,6 +148,7 @@ namespace TechJam
                 showTxt.Foreground = shade8;
                 showTxt.FontWeight = FontWeights.Bold;
                 ProgressBarColor.Width = stepWidth*10;
+                ProgressText.Text = "83%";
             }
             else if (val < (11 * config.step))
             {
@@ -146,9 +156,11 @@ namespace TechJam
                 showTxt.Foreground = shade8;
                 showTxt.FontWeight = FontWeights.Bold;
                 ProgressBarColor.Width = stepWidth*11;
+                ProgressText.Text = "92%";
             }
             else
             {
+                ProgressText.Text = "100%";
                 ProgressBarColor.Width = stepWidth*12;
                 ProgressBarBorder.BorderBrush = bgGreen;
                 ProgressBarColor.Fill = bgGreen;
