@@ -31,7 +31,7 @@ namespace TechJam
     {
         private DispatcherTimer timer;
 
-        private SolidColorBrush shade1 = new SolidColorBrush(Windows.UI.Colors.Black);
+        private SolidColorBrush shade1 = new SolidColorBrush(Windows.UI.Colors.Gray);
         private SolidColorBrush shade2 = new SolidColorBrush(Windows.UI.Colors.DarkSlateGray);
         private SolidColorBrush shade3 = new SolidColorBrush(Windows.UI.Colors.DimGray);
         private SolidColorBrush shade4 = new SolidColorBrush(Windows.UI.Colors.LightSlateGray);
@@ -53,7 +53,7 @@ namespace TechJam
             timer.Interval = TimeSpan.FromMilliseconds(1000);
             timer.Tick += Timer_Tick;
 
-            val = 0;
+            //val = 0; //Comment if no simulation
             flash = false;
             
             timer.Start();
@@ -62,22 +62,23 @@ namespace TechJam
         private void Timer_Tick(object sender, object e)
         {
 
-            //int x;
-            //var task = Task.Run(async () => { x = await getItemClient(); if (x == -1) { Debug.WriteLine("issue with http status code"); } else { val = x; } await Task.Delay(1000); });
-            //task.Wait();
+            int x;
+            var task = Task.Run(async () => { x = await getItemClient(); if (x == -1) { Debug.WriteLine("issue with http status code"); } else { val = x; } await Task.Delay(1000); });
+            task.Wait(); //comment above 3 lines if simulation - async call to read value from REST service
 
-            //Random rnd = new Random();
-            //val = rnd.Next(0, 4);
+            //val = val + 5; //comment if no simulation
+
             ProgressBarBorder.Width = showTxt.RenderSize.Width - 20;
             ProgressBarBorder.HorizontalAlignment = HorizontalAlignment.Left;
             ProgressBarColor.HorizontalAlignment = HorizontalAlignment.Left;
             ProgressBarBorder.VerticalAlignment = VerticalAlignment.Center;
             ProgressBarColor.VerticalAlignment = VerticalAlignment.Center;
             stepWidth = showTxt.RenderSize.Width / 12;
-            val = val + 5;
+
+            
             showTxt.FontSize= config.fSize;
 
-            if (val == 0 && val < (config.start+config.step))
+            if (val < (config.start+config.step))
             {
                 showTxt.Foreground = shade1;
                 showTxt.Text = "W                  ";
