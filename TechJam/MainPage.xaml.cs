@@ -41,6 +41,7 @@ namespace TechJam
         private SolidColorBrush shade8 = new SolidColorBrush(Windows.UI.Colors.White);
         private SolidColorBrush shade9 = new SolidColorBrush(Windows.UI.Colors.OrangeRed);
         private SolidColorBrush bgGreen = new SolidColorBrush(Windows.UI.Colors.Green);
+        private SolidColorBrush bgRed = new SolidColorBrush(Windows.UI.Colors.Red);
 
         public static int val;
         public static bool flash;
@@ -78,12 +79,27 @@ namespace TechJam
             
             showTxt.FontSize= config.fSize;
 
-            if (val < (config.start+config.step))
+            if (val == 0 )
+            {
+                ProgressBarBorder.Width = showTxt.RenderSize.Width - 20;
+                ProgressBarBorder.HorizontalAlignment = HorizontalAlignment.Left;
+                ProgressBarColor.HorizontalAlignment = HorizontalAlignment.Left;
+                ProgressBarBorder.VerticalAlignment = VerticalAlignment.Center;
+                ProgressBarColor.VerticalAlignment = VerticalAlignment.Center;
+                ProgressBarColor.Width = val;
+                ProgressText.Text = "0%";
+                showTxt.Text = "";
+                ProgressBarBorder.BorderBrush = bgRed;
+                //stepWidth = showTxt.RenderSize.Width / 12;
+            }
+            else if (val!=0 && val < (config.start+config.step))
             {
                 showTxt.Foreground = shade1;
                 showTxt.Text = "W                  ";
                 ProgressBarColor.Width = stepWidth;
                 ProgressText.Text = "8%";
+                ProgressBarColor.Fill = bgRed;
+
             }
             else if (val < (2 * config.step))
             {
@@ -91,6 +107,7 @@ namespace TechJam
                 showTxt.Text = "W                  ";
                 ProgressBarColor.Width = stepWidth*2;
                 ProgressText.Text = "17%";
+                ProgressBarColor.Fill = bgRed;
             }
             else if (val < (3 * config.step))
             {
@@ -98,6 +115,7 @@ namespace TechJam
                 showTxt.Text = "We                 ";
                 ProgressBarColor.Width = stepWidth*3;
                 ProgressText.Text = "25%";
+                ProgressBarColor.Fill = bgRed;
             }
             else if (val < (4 * config.step))
             {
@@ -105,6 +123,7 @@ namespace TechJam
                 showTxt.Text = "Wel                ";
                 ProgressBarColor.Width = stepWidth*4;
                 ProgressText.Text = "33%";
+                ProgressBarColor.Fill = bgRed;
             }
             else if (val < (5 * config.step))
             {
@@ -112,6 +131,7 @@ namespace TechJam
                 showTxt.Text = "Welc               ";
                 ProgressBarColor.Width = stepWidth*5;
                 ProgressText.Text = "42%";
+                ProgressBarColor.Fill = bgRed;
             }
             else if (val < (6 * config.step))
             {
@@ -119,6 +139,7 @@ namespace TechJam
                 showTxt.Text = "Welco              ";
                 ProgressBarColor.Width = stepWidth*6;
                 ProgressText.Text = "50%";
+                ProgressBarColor.Fill = bgRed;
             }
             else if (val < (7 * config.step))
             {
@@ -126,6 +147,7 @@ namespace TechJam
                 showTxt.Text = "Welcom             ";
                 ProgressBarColor.Width = stepWidth*7;
                 ProgressText.Text = "58%";
+                ProgressBarColor.Fill = bgRed;
             }
             else if (val < (8 * config.step))
             {
@@ -134,6 +156,7 @@ namespace TechJam
                 //showTxt.FontWeight = FontWeights.Bold;
                 ProgressBarColor.Width = stepWidth*8;
                 ProgressText.Text = "67%";
+                ProgressBarColor.Fill = bgRed;
             }
             else if (val < (9 * config.step))
             {
@@ -142,6 +165,7 @@ namespace TechJam
                 //showTxt.FontWeight = FontWeights.Bold;
                 ProgressBarColor.Width = stepWidth*9;
                 ProgressText.Text = "75%";
+                ProgressBarColor.Fill = bgRed;
             }
             else if (val < (10 * config.step))
             {
@@ -150,6 +174,7 @@ namespace TechJam
                 showTxt.FontWeight = FontWeights.Bold;
                 ProgressBarColor.Width = stepWidth*10;
                 ProgressText.Text = "83%";
+                ProgressBarColor.Fill = bgRed;
             }
             else if (val < (11 * config.step))
             {
@@ -158,6 +183,7 @@ namespace TechJam
                 showTxt.FontWeight = FontWeights.Bold;
                 ProgressBarColor.Width = stepWidth*11;
                 ProgressText.Text = "92%";
+                ProgressBarColor.Fill = bgRed;
             }
             else
             {
